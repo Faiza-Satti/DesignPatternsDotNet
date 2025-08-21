@@ -1,0 +1,6 @@
+@Singelton_HostAddress = http://localhost:5217/api
+
+GET {{Singelton_HostAddress}}/Test/check/
+Accept: application/json
+
+###
