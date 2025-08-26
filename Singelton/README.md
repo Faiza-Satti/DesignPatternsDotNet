@@ -4,7 +4,7 @@
 The **Singleton Pattern** ensures that a class has only **one instance** and provides a global point of access to it.
 
 ## When to Use
-- Configuration managers
+- Configuration settings
 - Logging
 - Caching
 - Thread pools
@@ -16,6 +16,7 @@ We use:
 - A **private constructor** → prevents creating objects with `new`.
 - A **static property** → provides the single instance.
 - `Lazy<T>` → ensures thread-safe, lazy initialization.
+- builder.Services.AddSingleton<IAppLogger>(AppLogger.Instance);
 
 ## Why not use locks?
 - Before .NET 4, locks were required for thread safety.
