@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Publisher_Subscriber": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

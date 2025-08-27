@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singelton", "Singelton\Singelton.csproj", "{C094A3F5-AA3C-4F3B-B69E-2F27E0732A56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publisher_Subscriber", "Publisher_Subscriber\Publisher_Subscriber\Publisher_Subscriber.csproj", "{1DE8C71B-1F20-42CD-B9C4-7CA24667CD3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C094A3F5-AA3C-4F3B-B69E-2F27E0732A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C094A3F5-AA3C-4F3B-B69E-2F27E0732A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C094A3F5-AA3C-4F3B-B69E-2F27E0732A56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DE8C71B-1F20-42CD-B9C4-7CA24667CD3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DE8C71B-1F20-42CD-B9C4-7CA24667CD3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DE8C71B-1F20-42CD-B9C4-7CA24667CD3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DE8C71B-1F20-42CD-B9C4-7CA24667CD3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
