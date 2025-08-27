@@ -31,10 +31,16 @@ This is particularly useful in systems where multiple parts of the application n
 
 ## Observer vs. Publisher-Subscriber
 
-| Feature       | Observer Pattern                       | Pub/Sub Pattern                          |
-| ------------- | -------------------------------------- | ---------------------------------------- |
-| Scope         | In-process communication               | Distributed systems (via broker)         |
-| Coupling      | Subject knows observers via interfaces | Publisher & Subscriber fully decoupled   |
-| Broker        | Not required                           | Requires broker (RabbitMQ, Kafka, etc.)  |
-| Communication | Synchronous (usually)                  | Asynchronous                             |
-| Best For      | Local app state updates                | Microservices, event-driven architecture |
+## Observer Pattern vs. Pub/Sub Pattern
+
+| Feature                | Observer Pattern                           | Pub/Sub Pattern                          |
+| ----------------------- | ------------------------------------------ | ---------------------------------------- |
+| Scope                  | In-process communication                   | Distributed systems (via broker)         |
+| Coupling               | Subject knows observers via interfaces     | Publisher & Subscriber fully decoupled   |
+| Broker                 | Not required                               | Requires broker (RabbitMQ, Kafka, etc.)  |
+| Communication          | Synchronous (usually)                      | Asynchronous                             |
+| Who pushes?            | Subject pushes directly to observers       | Broker pushes messages to subscribers    |
+| How receivers work     | Observers don’t poll, they’re **notified** | Subscribers “listen” on a topic/queue    |
+| Decoupling Level       | Low (subject aware of observers)           | High (publisher/subscriber unaware)      |
+| Best For               | Local app state updates                    | Microservices, event-driven architecture |
+| Examples               | UI event listeners, WPF bindings           | RabbitMQ, Kafka, Azure Service Bus       |
