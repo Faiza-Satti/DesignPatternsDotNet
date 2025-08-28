@@ -14,7 +14,7 @@ This is particularly useful in systems where multiple parts of the application n
 - Encourages an **event-driven architecture** inside applications.  
 - Provides a **clean separation of concerns**.  
 
-```csharp
+```mermaid
 classDiagram
     direction TB
 
@@ -50,19 +50,19 @@ classDiagram
     IObserver <|.. WeatherSubscriber
 
     NewsAgency --> IObserver : notifies
-
+```    
     ---
+```mermaid
+sequenceDiagram
+participant NewsAgency
+participant SportsSubscriber
+participant WeatherSubscriber
 
-    sequenceDiagram
-    participant NewsAgency
-    participant SportsSubscriber
-    participant WeatherSubscriber
+NewsAgency->>SportsSubscriber: Update("Breaking Sports News: Team A won!")
+SportsSubscriber->>Console: [Sports Subscriber] Received: Breaking Sports News
 
-    NewsAgency->>SportsSubscriber: Update("Breaking Sports News: Team A won!")
-    SportsSubscriber->>Console: [Sports Subscriber] Received: Breaking Sports News
-
-    NewsAgency->>WeatherSubscriber: Update("Weather Update: Heavy rain expected")
-    WeatherSubscriber->>Console: [Weather Subscriber] Received: Heavy rain expected
+NewsAgency->>WeatherSubscriber: Update("Weather Update: Heavy rain expected")
+WeatherSubscriber->>Console: [Weather Subscriber] Received: Heavy rain expected
 ```
 
 ## Key Benefits
