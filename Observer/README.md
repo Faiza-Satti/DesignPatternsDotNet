@@ -51,7 +51,7 @@ classDiagram
 
     NewsAgency --> IObserver : notifies
 ```    
-    ---
+
 ```mermaid
 sequenceDiagram
 participant NewsAgency

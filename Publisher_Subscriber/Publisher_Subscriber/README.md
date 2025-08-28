@@ -12,9 +12,9 @@ In this repository, we demonstrate the Pub/Sub pattern in **.NET** using **Rabbi
 
 ```text
  Publisher ───► [Exchange/Topic] ───► Subscriber(s)
+```
 
- ---
-
+```mermaid
  classDiagram
     direction TB
 
@@ -38,22 +38,22 @@ In this repository, we demonstrate the Pub/Sub pattern in **.NET** using **Rabbi
 
     IMessagePublisher <|.. RabbitMqPublisher
     IMessageSubscriber <|.. RabbitMqSubscriber
+```
 
-    ---
+```mermaid
+sequenceDiagram
+participant Publisher
+participant Exchange
+participant Subscriber1 as Sports Subscriber
+participant Subscriber2 as Weather Subscriber
 
-    sequenceDiagram
-    participant Publisher
-    participant Exchange
-    participant Subscriber1 as Sports Subscriber
-    participant Subscriber2 as Weather Subscriber
+Publisher->>Exchange: Publish("news.sports.football", "Match Update")
+Exchange-->>Subscriber1: Matches topic "news.sports.*"
+Subscriber1->>Console: [Sports Sub] Match Update
 
-    Publisher->>Exchange: Publish("news.sports.football", "Match Update")
-    Exchange-->>Subscriber1: Matches topic "news.sports.*"
-    Subscriber1->>Console: [Sports Sub] Match Update
-
-    Publisher->>Exchange: Publish("news.weather.rain", "Heavy Rain Alert")
-    Exchange-->>Subscriber2: Matches topic "news.weather.#"
-    Subscriber2->>Console: [Weather Sub] Heavy Rain Alert
+Publisher->>Exchange: Publish("news.weather.rain", "Heavy Rain Alert")
+Exchange-->>Subscriber2: Matches topic "news.weather.#"
+Subscriber2->>Console: [Weather Sub] Heavy Rain Alert
  ```
 
  ## How It Works

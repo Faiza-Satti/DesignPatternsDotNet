@@ -18,7 +18,7 @@ We use:
 - `Lazy<T>` → ensures thread-safe, lazy initialization.
 - builder.Services.AddSingleton<IAppLogger>(AppLogger.Instance);
 
-```csharp
+```mermaid
 classDiagram
     direction TB
 
@@ -39,6 +39,29 @@ classDiagram
     }
 
     IAppLogger <|.. AppLogger
+```
+
+```mermaid
+sequenceDiagram
+    participant Client1
+    participant Singleton as AppLogger (Singleton)
+
+    Client1->>Singleton: Request Instance
+    activate Singleton
+    Singleton-->>Client1: Create new instance (InstanceId = 123)
+    deactivate Singleton
+
+    Client1->>Singleton: Log("First log message")
+    Singleton-->>Client1: [LOG - 123] First log message
+
+    participant Client2
+
+    Client2->>Singleton: Request Instance
+    Singleton-->>Client2: Return same instance (InstanceId = 123)
+
+    Client2->>Singleton: Log("Second log message")
+    Singleton-->>Client2: [LOG - 123] Second log message
+
 ```
 
 ## Why not use locks?
