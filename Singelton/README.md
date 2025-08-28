@@ -18,6 +18,29 @@ We use:
 - `Lazy<T>` → ensures thread-safe, lazy initialization.
 - builder.Services.AddSingleton<IAppLogger>(AppLogger.Instance);
 
+```csharp
+classDiagram
+    direction TB
+
+    class IAppLogger {
+        <<interface>>
+        +void Log(string message)
+        +Guid InstanceId
+    }
+
+    class AppLogger {
+        <<singleton>>
+        -static Lazy<AppLogger> _instance
+        -Guid _instanceId
+        -AppLogger()  // private constructor
+        +static AppLogger Instance
+        +Guid InstanceId
+        +void Log(string message)
+    }
+
+    IAppLogger <|.. AppLogger
+```
+
 ## Why not use locks?
 - Before .NET 4, locks were required for thread safety.
 - Problems with lock-based implementations:

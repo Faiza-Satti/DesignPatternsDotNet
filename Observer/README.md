@@ -14,7 +14,56 @@ This is particularly useful in systems where multiple parts of the application n
 - Encourages an **event-driven architecture** inside applications.  
 - Provides a **clean separation of concerns**.  
 
----
+```csharp
+classDiagram
+    direction TB
+
+    class IObserver {
+        <<interface>>
+        +void Update(string message)
+    }
+
+    class ISubject {
+        <<interface>>
+        +void Attach(IObserver observer)
+        +void Detach(IObserver observer)
+        +void Notify(string message)
+    }
+
+    class NewsAgency {
+        -List<IObserver> observers
+        +void Attach(IObserver observer)
+        +void Detach(IObserver observer)
+        +void Notify(string message)
+    }
+
+    class SportsSubscriber {
+        +void Update(string message)
+    }
+
+    class WeatherSubscriber {
+        +void Update(string message)
+    }
+
+    ISubject <|.. NewsAgency
+    IObserver <|.. SportsSubscriber
+    IObserver <|.. WeatherSubscriber
+
+    NewsAgency --> IObserver : notifies
+
+    ---
+
+    sequenceDiagram
+    participant NewsAgency
+    participant SportsSubscriber
+    participant WeatherSubscriber
+
+    NewsAgency->>SportsSubscriber: Update("Breaking Sports News: Team A won!")
+    SportsSubscriber->>Console: [Sports Subscriber] Received: Breaking Sports News
+
+    NewsAgency->>WeatherSubscriber: Update("Weather Update: Heavy rain expected")
+    WeatherSubscriber->>Console: [Weather Subscriber] Received: Heavy rain expected
+```
 
 ## Key Benefits
 - Loose Coupling → Subject and observers interact via interfaces, not concrete types.
