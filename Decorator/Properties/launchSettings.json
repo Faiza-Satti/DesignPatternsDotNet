@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Decorator": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
