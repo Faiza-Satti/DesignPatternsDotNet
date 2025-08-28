@@ -50,6 +50,26 @@ classDiagram
     NotifierDecorator --> INotifier
 ```
 
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant SmsNotifier as SmsNotifier (Decorator)
+    participant EmailNotifier as EmailNotifier (ConcreteComponent)
+
+    Client->>SmsNotifier: Send("Hello World!")
+    activate SmsNotifier
+
+    SmsNotifier->>SmsNotifier: Add behavior (Send SMS)
+    SmsNotifier->>EmailNotifier: Send("Hello World!")
+    activate EmailNotifier
+    EmailNotifier-->>SmsNotifier: [EMAIL sent]
+    deactivate EmailNotifier
+
+    SmsNotifier-->>Client: [SMS sent + EMAIL sent]
+    deactivate SmsNotifier
+```
+
 ## Components
 - Component (INotifier) → Common interface for all notifiers.
 - Concrete Component (EmailNotifier) → Base implementation.
